@@ -16,13 +16,13 @@
       - name: setup .NET
         uses: actions/setup-dotnet@v3
         with:
-           dotnet-version: '6.0.x'
+           dotnet-version: '6.0.X'
 
       - name: Restore
-        run: dotnet restore ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc.sln
+        run: dotnet restore ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc
 
       - name: Build
-        run: dotnet build ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc.sln --configuration Release --no-restore
+        run: dotnet build ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc.sln --configuration Release --no-build
+        run: dotnet publish ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc --configuration Release --no-build
