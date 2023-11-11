@@ -19,10 +19,10 @@
            dotnet-version: '6.0.X'
 
       - name: Restore
-        run: dotnet restore ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc\index.jsp
+        run: dotnet restore ./Irctc.sln
 
       - name: Build
-        run: dotnet build ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc\index.jsp --configuration Release --no-restore
+        run: dotnet build ./Irctc.sln --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc\index.jsp --configuration Release --no-build
+        run: dotnet publish ./Irctc.sln  --configuration Release --no-build
