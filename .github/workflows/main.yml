@@ -18,11 +18,10 @@
         with:
            dotnet-version: '6.0.X'
 
-      - name: Restore
-        run: dotnet restore ./irctc.sln
+    
 
       - name: Build
-        run: dotnet build ./irctc.sln --configuration Release --no-restore
+        run: dotnet build ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc\pom.xml --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish ./irctc.sln  --configuration Release --no-build
+        run: dotnet publish ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc\pom.xml  --configuration Release --no-build
