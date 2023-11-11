@@ -19,10 +19,10 @@
            dotnet-version: '6.0.X'
 
       - name: Restore
-        run: dotnet restore ./Irctc.sln
+        run: dotnet restore ./irctc.sln
 
       - name: Build
-        run: dotnet build ./Irctc.sln --configuration Release --no-restore
+        run: dotnet build ./irctc.sln --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish ./Irctc.sln  --configuration Release --no-build
+        run: dotnet publish ./irctc.sln  --configuration Release --no-build
