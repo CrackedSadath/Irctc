@@ -8,6 +8,10 @@
 
  env:
    AZURE_WEBAPP_NAME: deploying-app
+   key-vault-uri: ${{ secrets.KEY_VAULT_URI }}
+ run-name:  
+    export KEY_1=$(az keyvault secret show --name KEY_NAME --vault-name KEY_VAULT_NAME --query value -o tsv)
+
  jobs:
    publish:
     runs-on: ubuntu-latest
@@ -26,5 +30,6 @@
           app-name: ${{ env.AZURE_WEBAPP_NAME }}  # Replace with your Azure App Service name
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }} 
           key-vault-uri: ${{ secrets.KEY_VAULT_URI }}
+           
          
     
