@@ -23,13 +23,16 @@
            dotnet-version: '6.0.X'
            
       
-      #- name: Authenticate with Azure
-       # run: az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+      - name: Authenticate with Azure
+        run: az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
      
 
       - name: Fetch keys from Azure Key Vault
         run: |
          export KEY_1=$(az keyvault secret show --name KEY_NAME --vault-name KEY_VAULT_NAME --query value -o tsv)
+
+      #- name: Create environment-specific manifest
+       # run: echo "key1: $KEY_1" > manifest.yml
         
            
       - name: Deploy to Azure App Service
