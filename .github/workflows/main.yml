@@ -6,6 +6,9 @@
     branches:
     - main
 
+ env:
+   AZURE_WEBAPP_NAME: deploying-app
+   AZURE_WEBAPP_PACKAGE_PATH: "./publish" 
  jobs:
    publish:
     runs-on: ubuntu-latest
@@ -17,11 +20,11 @@
         uses: actions/setup-dotnet@v3
         with:
            dotnet-version: '6.0.X'
-
+           
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'deploying-app'  # Replace with your Azure App Service name
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}  
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     
-
-      - name: Build
-        run: dotnet build ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc\pom.xml --configuration Release --no-restore
-
-      - name: Publish
-        run: dotnet publish ./C:\Users\91855\Source\Repos\CrackedSadath\Irctc\pom.xml  --configuration Release --no-build
