@@ -22,15 +22,16 @@
         with:
            dotnet-version: '6.0.X'
 
+      - name: Install AZURE ClI
+        run:  |
+          sudo apt-get update
+          sudo apt-get install azure cli
+
       - name: Login to Azure
         uses: azure/login@v1
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
 
-      - name: Install AZURE ClI
-        run:  |
-          sudo apt-get update
-          sudo apt-get install azure cli
            
       
       - name: Authenticate with Azure
