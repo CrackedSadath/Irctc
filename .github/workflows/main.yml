@@ -8,6 +8,9 @@
 
  env:
         AZURE_WEBAPP_NAME: deploying-app
+        AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+        AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
         key-vault-uri: ${{ secrets.KEY_VAULT_URI }} 
 
  jobs:
@@ -21,12 +24,6 @@
         uses: actions/setup-dotnet@v3
         with:
            dotnet-version: '6.0.X'
-
-      - name: Login to Azure
-        env:
-         AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-         AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-         AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
            
       
       - name: Authenticate with Azure
