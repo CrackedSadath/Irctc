@@ -25,11 +25,16 @@
         uses: actions/setup-dotnet@v3
         with:
            dotnet-version: '6.0.X'
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
            
       
-      - name: Authenticate with Azure
-        run: 
-           az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+    #  - name: Authenticate with Azure
+     #   run: 
+     #      az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
      
 
       - name: Fetch keys from Azure Key Vault
