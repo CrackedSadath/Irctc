@@ -24,7 +24,7 @@
 
       - name: Install Azure CLI
         run: |
-          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo powershell
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
      # - name: Install AZURE ClI
       #  run:  |
