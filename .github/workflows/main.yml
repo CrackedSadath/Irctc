@@ -40,10 +40,10 @@
       
       - name: Authenticate with Azure
         run: 
-           az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }} az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-           
+           az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }} 
+           az account set --subscription <AZURE_SUBSCRIPTION_ID>
      # - name: Set Azure Subscription
-      #  run: az account set --subscription <AZURE-SUBSCRIPTION-ID>
+      #  run: az account set --subscription <AZURE_SUBSCRIPTION_ID>
       - name: Fetch Secrets
         run: |
           secrets=("AZURE-FIRST-NAME" "AZURE-NOMINEE" "AZURE-SECOND-NAME" "AZURE-THIRD-NAME")  # Add your secret names here
