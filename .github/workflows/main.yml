@@ -41,11 +41,19 @@
       - name: Authenticate with Azure
         run: 
            az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
-     
 
-      - name: Fetch keys from Azure Key Vault
+      - name: Fetch Secrets
         run: |
-         export KEY_1=$(az keyvault secret show --name KEY_NAME --vault-name KEY_VAULT_NAME --query value -o tsv)
+          secrets=("AZURE-FIRST-NAME" "AZURE-NOMINEE" "AZURE-SECOND-NAME" "AZURE-THIRD-NAME")  # Add your secret names here
+           for secret in "${secrets[@]}"; do
+           echo "Fetching $secret..."
+            value=$(az keyvault secret show --vault-name KEY_VAULT_NAME --name $secret --query value -o tsv)
+           echo "$secret=$value" >> env-secrets.env
+            done
+
+    #  - name: Fetch keys from Azure Key Vault
+      #  run: |
+        # export KEY_1=$(az keyvault secret show --name KEY_NAME --vault-name KEY_VAULT_NAME --query value -o tsv)
 
       - name: Create environment-specific manifest
         run: echo "key1:$KEY_1" > manifest.yml
