@@ -26,10 +26,10 @@
         run: |
           curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-     # - name: Install AZURE ClI
-      #  run:  |
-       #   sudo apt-get update
-        #  sudo apt-get install azure cli
+      - name: Install AZURE ClI
+        run:  |
+          sudo apt-get update
+          sudo apt-get install azure cli
 
       - name: Login to Azure
         uses: azure/login@v1
