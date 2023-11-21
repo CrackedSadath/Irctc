@@ -8,6 +8,7 @@
 
  env:
         AZURE_WEBAPP_NAME: deploying-app
+        AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }} 
         key-vault-uri: ${{ secrets.KEY_VAULT_URI }} 
 
  jobs:
